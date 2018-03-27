@@ -4,7 +4,8 @@ Donate link: https://dedidata.com
 Tags: wordpress editor, editor, fontawesome, bootstrap, wysiwyg, tinymce, bootstrap editor, font awesome, tinymce advanced, advanced editor, advanced tinymce, wordpress bootstrap, bootstrap wordpress, wp editor
 Requires at least: 4.8
 Tested up to: 4.9
-Stable tag: 1.5
+Requires PHP: 5.6
+Stable tag: 1.7
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
