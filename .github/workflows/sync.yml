@@ -22,7 +22,7 @@ jobs:
         run: mkdir -p .svn/tmp
 
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout
         with:
           submodules: recursive
           fetch-depth: 0
