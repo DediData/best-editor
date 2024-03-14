@@ -34,10 +34,11 @@ jobs:
 
       - name: Sync from SVN trunk
         run: |
-          svn checkout https://plugins.svn.wordpress.org/best-editor/ . --depth immediates
+          svn checkout https://plugins.svn.wordpress.org/best-editor/ .
+          svn update --set-depth immediates trunk
           svn update --set-depth infinity trunk
           cp -r trunk/* .
-      
+		  
       - name: Commit changes
         run: |
           git config --global user.name 'Farhad Sakhaei'
