@@ -1,0 +1,38 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"landingPage": "\/wp-admin\/options-general.php?page=best-editor",
+	"preferredVersions": {
+		"php": "8.3",
+		"wp": "6.4"
+	},
+	"phpExtensionBundles": [
+		"kitchen-sink"
+	],
+	"steps": [
+		{
+			"step": "login",
+			"username": "admin",
+			"password": "password"
+		},
+		{
+			"step": "installPlugin",
+			"pluginZipFile": {
+				"resource": "wordpress.org\/plugins",
+				"slug": "disable-gutenberg"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "installPlugin",
+			"pluginZipFile": {
+				"resource": "wordpress.org\/plugins",
+				"slug": "best-editor"
+			},
+			"options": {
+				"activate": true
+			}
+		}
+	]
+}
