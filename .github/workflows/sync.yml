@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   sync:
@@ -12,13 +13,16 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
       
-      - name: Sync from SVN
-        run: svn checkout https://plugins.svn.wordpress.org/best-editor/ . --depth immediates && svn update --set-depth infinity trunk && cp -r trunk/* .
+      - name: Sync from SVN trunk
+        run: |
+          svn checkout https://plugins.svn.wordpress.org/your-plugin-slug/trunk/ . --depth immediates
+          svn update --set-depth infinity trunk
+          cp -r trunk/* .
       
       - name: Commit changes
         run: |
           git config --global user.name 'Farhad Sakhaei'
           git config --global user.email 'farhad0@gmail.com'
           git add .
-          git commit -m "Sync from WordPress.org SVN"
+          git commit -m "Sync from WordPress.org SVN trunk"
           git push
