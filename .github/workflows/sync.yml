@@ -13,6 +13,11 @@ jobs:
       run:
         shell: bash
     steps:
+      - name: Delete all files except GitHub Actions files
+        run: |
+          shopt -s extglob
+          rm -rf !(README1.md|.github)
+
       - name: Checkout code
         uses: actions/checkout@v2
         with:
