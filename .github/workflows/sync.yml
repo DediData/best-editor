@@ -26,7 +26,7 @@ jobs:
 
       - name: Sync from SVN trunk
         run: |
-          svn checkout https://plugins.svn.wordpress.org/your-plugin-slug/trunk/ . --depth immediates
+          svn checkout https://plugins.svn.wordpress.org/best-editor/trunk/ . --depth immediates
           svn update --set-depth infinity trunk
           cp -r trunk/* .
       
