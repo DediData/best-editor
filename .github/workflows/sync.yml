@@ -18,6 +18,9 @@ jobs:
           shopt -s extglob
           rm -rf !(README1.md|.github)
 
+      - name: Create SVN Temp Directory
+        run: mkdir -p .svn/tmp
+
       - name: Checkout code
         uses: actions/checkout@v2
         with:
