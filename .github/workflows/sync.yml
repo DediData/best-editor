@@ -9,10 +9,21 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
     steps:
-      - name: Check out code
+      - name: Checkout code
         uses: actions/checkout@v2
-      
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+
       - name: Sync from SVN trunk
         run: |
           svn checkout https://plugins.svn.wordpress.org/your-plugin-slug/trunk/ . --depth immediates
