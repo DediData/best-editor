@@ -1,0 +1,45 @@
+name: Sync Advanced Classic Editor
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Delete all files except GitHub Actions files
+        run: |
+          shopt -s extglob
+          rm -rf !(.svn|.github)
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+
+      - name: Sync from SVN trunk
+        run: |
+          svn checkout https://plugins.svn.wordpress.org/best-editor/ .
+          svn update --set-depth immediates trunk
+          svn update --set-depth infinity trunk
+          cp -r trunk/* .
+		  
+      - name: Commit changes
+        run: |
+          git config --global user.name 'Farhad Sakhaei'
+          git config --global user.email 'farhad0@gmail.com'
+          git add .
+          git commit -m "Sync from WordPress.org SVN trunk"
+          git push
