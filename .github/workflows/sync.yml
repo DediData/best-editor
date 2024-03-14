@@ -38,7 +38,7 @@ jobs:
           svn update --set-depth immediates trunk
           svn update --set-depth infinity trunk
           cp -r trunk/* .
-		  
+
       - name: Commit changes
         run: |
           git config --global user.name 'Farhad Sakhaei'
