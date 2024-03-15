@@ -4,6 +4,7 @@ on:
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron:  '23 12 * * *'
+  workflow_dispatch:
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -22,8 +23,6 @@ jobs:
       - name: Remove unwanted files
         run: |
           find . -mindepth 1 -maxdepth 1 ! -name '.github' ! -name '.git' -exec rm -rf {} +
-          git commit -am "Remove all files and folders except .svn, .github, and .git"
-          git push origin master
 
       - name: Get plugin from SVN
         run: |
@@ -33,5 +32,5 @@ jobs:
       - name: Commit and push changes
         run: |
           git add .
-          git commit -m "Sync plugin from SVN"
+          git commit -am "Sync plugin from SVN"
           git push origin master
