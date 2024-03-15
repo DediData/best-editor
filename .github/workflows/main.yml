@@ -14,7 +14,7 @@ jobs:
       - name: Clean up current files (except .svn and .github folders)
         run: |
           find . -type f -not -path './.svn/*' -not -path './.github/*' -exec rm -f {} +
-          find . -type d -not -path './.svn' -not -path './.github' -exec rm -rf {} +
+          find . -type d -not -path './.svn' -not -path './.github' -not -path '.' -not -path '..' -exec rm -rf {} +
 
       - name: Checkout code
         uses: actions/checkout@v4
