@@ -19,10 +19,6 @@ jobs:
         run: |
           find . -mindepth 1 -maxdepth 1 ! -name '.github' ! -name '.svn' ! -name '.git' -exec rm -rf {} +
 
-
-      - name: Get plugin from SVN
-        run: svn checkout https://plugins.svn.wordpress.org/best-editor/trunk .
-
       - name: Configure Git
         run: |
           git config --global user.name 'Farhad Sakhaei'
