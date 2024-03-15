@@ -1,19 +1,27 @@
 name: Sync Advanced Classic Editor
+
 on:
   push:
     branches:
       - main
   workflow_dispatch:
+
 jobs:
   sync:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
+
     steps:
-      - name: Clean unwanted files
+      - name: Clean up current files (except .svn and .github folders)
         run: |
-          find . -type f ! -path './.svn/*' ! -path './.github/*' -exec rm -f {} +
+		  find . -type f -not -path './.svn/*' -not -path './.github/*' -exec rm -f {} +
+		  find . -type d -not -path './.svn' -not -path './.github' -exec rm -rf {} +
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Sync from SVN trunk
+        run: |
+          svn export https://plugins.svn.wordpress.org/best-editor/trunk .
 
       - name: Configure Git
         run: |
@@ -22,6 +30,6 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git add .
-          git commit -am "Sync from WordPress.org SVN trunk"
+          git add -A
+          git commit -m "Sync from WordPress.org SVN trunk"
           git push
