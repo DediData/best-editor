@@ -9,20 +9,19 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Clean up current files (except .svn and .github folders)
+      - uses: actions/checkout@v4
+
+      - name: Install Subversion
+        run: sudo apt-get update && sudo apt-get install -y subversion
+		
+      - name: Clean up current files
         run: |
-          find . -type f -not -path './.svn/*' -not -path './.github/*' -exec rm -f {} +
-          find . -type d -not -path './.svn' -not -path './.github' -not -path '.' -not -path '..' -exec rm -rf {} +
+          rm -rf !(.*svn|.github)
 
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Sync from SVN trunk
-        run: |
-          svn export --force https://plugins.svn.wordpress.org/best-editor/trunk .
-
+      - name: Get plugin from SVN
+        run: svn checkout https://plugins.svn.wordpress.org/best-editor/trunk .
+		
       - name: Configure Git
         run: |
           git config --global user.name 'Farhad Sakhaei'
@@ -31,5 +30,9 @@ jobs:
       - name: Commit and push changes
         run: |
           git add .
-          git commit -m "Sync from WordPress.org SVN trunk"
-          git push
+          git commit -m "Sync plugin from SVN revision [svn log -r HEAD --xml | xpath //revision/@number]"
+
+      - name: Push changes to GitHub
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Required to fetch tags for pushing
