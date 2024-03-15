@@ -26,8 +26,8 @@ jobs:
 
       - name: Get plugin from SVN
         run: |
-		svn checkout https://plugins.svn.wordpress.org/best-editor/trunk .
-		rm .svn -rf
+          svn checkout https://plugins.svn.wordpress.org/best-editor/trunk .
+          rm -rf ".svn"
 
       - name: Commit and push changes
         run: |
