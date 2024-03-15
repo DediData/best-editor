@@ -25,7 +25,9 @@ jobs:
           git push origin master
 
       - name: Get plugin from SVN
-        run: svn checkout https://plugins.svn.wordpress.org/best-editor/trunk .
+        run: |
+		svn checkout https://plugins.svn.wordpress.org/best-editor/trunk .
+		rm .svn -rf
 
       - name: Commit and push changes
         run: |
