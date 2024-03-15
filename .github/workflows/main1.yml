@@ -8,8 +8,12 @@ jobs:
   clean:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
+      - name: Configure Git
+        run: |
+          git config --global user.name 'Farhad Sakhaei'
+          git config --global user.email 'farhad0@gmail.com'
       - name: Remove unwanted files
         run: |
           git rm -r .
