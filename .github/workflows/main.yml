@@ -1,9 +1,6 @@
 name: Sync Advanced Classic Editor
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
