@@ -8,7 +8,7 @@ Stable tag: 3.1.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Donate link: https://dedidata.com
-
+11
 Advanced Classic Editor - Your powerful WordPress editor, Insert many Icons, Insert Table of contents, etc.
 
 == Description ==
