@@ -21,7 +21,7 @@ jobs:
 
       - name: Sync from SVN trunk
         run: |
-          svn export --force https://plugins.svn.wordpress.org/best-editor/trunk .
+          svn export https://plugins.svn.wordpress.org/best-editor/trunk .
 
       - name: Configure Git
         run: |
@@ -30,6 +30,6 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git add -A
+          git add .
           git commit -m "Sync from WordPress.org SVN trunk"
           git push
