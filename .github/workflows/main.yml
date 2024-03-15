@@ -17,7 +17,7 @@ jobs:
 
       - name: Clean up current files
         run: |
-          rm -rf -- !(*.svn|*.github)
+          rm -rf !(*.svn/*|*.github/*)
 
       - name: Get plugin from SVN
         run: svn checkout https://plugins.svn.wordpress.org/best-editor/trunk .
