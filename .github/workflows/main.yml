@@ -21,7 +21,7 @@ jobs:
 
       - name: Sync from SVN trunk
         run: |
-          svn export https://plugins.svn.wordpress.org/best-editor/trunk .
+          svn export --force https://plugins.svn.wordpress.org/best-editor/trunk .
 
       - name: Configure Git
         run: |
