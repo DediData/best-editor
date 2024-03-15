@@ -4,7 +4,7 @@ Tags: wordpress editor, editor, fontawesome, bootstrap, wysiwyg
 Requires at least: 6.0
 Tested up to: 6.4
 Requires PHP: 7.0
-Stable tag: 3.1.2d
+Stable tag: 3.1.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Donate link: https://dedidata.com
