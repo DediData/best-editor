@@ -15,24 +15,6 @@ jobs:
         run: |
           find . -type f ! -path './.svn/*' ! -path './.github/*' -exec rm -f {} +
 
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive
-          fetch-depth: 0
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20.x'
-
-      - name: Sync from SVN trunk
-        run: |
-          svn checkout https://plugins.svn.wordpress.org/best-editor/trunk .
-          svn update --set-depth immediates trunk
-          svn update --set-depth infinity trunk
-          cp -r * .
-
       - name: Configure Git
         run: |
           git config --global user.name 'Farhad Sakhaei'
