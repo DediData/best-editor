@@ -3,8 +3,7 @@ name: Sync Advanced Classic Editor
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '0 12 * * *'
-  workflow_dispatch:
+    - cron:  '15 12 * * *'
 jobs:
   sync:
     runs-on: ubuntu-latest
