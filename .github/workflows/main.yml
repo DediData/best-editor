@@ -14,14 +14,14 @@ jobs:
 
       - name: Install Subversion
         run: sudo apt-get update && sudo apt-get install -y subversion
-		
+
       - name: Clean up current files
         run: |
           rm -rf !(.*svn|.github)
 
       - name: Get plugin from SVN
         run: svn checkout https://plugins.svn.wordpress.org/best-editor/trunk .
-		
+
       - name: Configure Git
         run: |
           git config --global user.name 'Farhad Sakhaei'
