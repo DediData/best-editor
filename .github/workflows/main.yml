@@ -21,7 +21,7 @@ jobs:
       - name: Remove unwanted files
         run: |
           find . -mindepth 1 -maxdepth 1 ! -name '.github' ! -name '.git' -exec rm -rf {} +
-          git commit -m "Remove all files and folders except .svn, .github, and .git"
+          git commit -am "Remove all files and folders except .svn, .github, and .git"
           git push origin master
 
       - name: Get plugin from SVN
