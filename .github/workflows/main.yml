@@ -9,20 +9,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Subversion
-        run: sudo apt-get update && sudo apt-get install -y subversion
-
       - name: Configure Git
         run: |
-          git checkout master
           git config --global user.name 'Farhad Sakhaei'
           git config --global user.email 'farhad0@gmail.com'
 
       - name: Configure Git
         run: |
           git checkout master
-          git config --global user.name 'Farhad Sakhaei'
-          git config --global user.email 'farhad0@gmail.com'
+
       - name: Remove unwanted files
         run: |
           git rm -r .
@@ -37,8 +32,4 @@ jobs:
         run: |
           git add .
           git commit -m "Sync plugin from SVN revision [svn log -r HEAD --xml | xpath //revision/@number]"
-
-      - name: Push changes to GitHub
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # Required to fetch tags for pushing
+          git push origin master
