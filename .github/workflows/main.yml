@@ -21,7 +21,6 @@ jobs:
       - name: Remove unwanted files
         run: |
           git rm -r .
-          git restore .svn
           git restore .github
           git restore .git
           git commit -m "Remove all files and folders except .svn, .github, and .git"
