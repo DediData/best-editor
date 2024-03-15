@@ -15,14 +15,26 @@ jobs:
       - name: Install Subversion
         run: sudo apt-get update && sudo apt-get install -y subversion
 
-      - name: Clean up current files
+      - name: Configure Git
         run: |
-          find . -mindepth 1 -maxdepth 1 ! -name '.github' ! -name '.svn' ! -name '.git' -exec rm -rf {} +
+          git checkout master
+          git config --global user.name 'Farhad Sakhaei'
+          git config --global user.email 'farhad0@gmail.com'
 
       - name: Configure Git
         run: |
+          git checkout master
           git config --global user.name 'Farhad Sakhaei'
           git config --global user.email 'farhad0@gmail.com'
+      - name: Remove unwanted files
+        run: |
+          git rm -r .
+          git reset -- .svn .github .git
+          git commit -m "Remove all files and folders except .svn, .github, and .git"
+          git push origin master
+
+      - name: Get plugin from SVN
+        run: svn checkout https://plugins.svn.wordpress.org/best-editor/trunk .
 
       - name: Commit and push changes
         run: |
