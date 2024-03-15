@@ -23,5 +23,5 @@ jobs:
       - name: Commit and push changes
         run: |
           git add .
-          git commit -m "Sync from WordPress.org SVN trunk"
+          git commit -am "Sync from WordPress.org SVN trunk"
           git push
