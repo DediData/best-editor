@@ -1,0 +1,16 @@
+name: Clean Master Branch
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Remove unwanted files
+        run: |
+          find . ! -path "*.git" ! -path ".github/*" ! -name ".svn" -type f -delete
+          find . ! -path "*.git" ! -path ".github/*" ! -name ".svn" -type d -empty -delete
