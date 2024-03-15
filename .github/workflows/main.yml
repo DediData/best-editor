@@ -3,7 +3,7 @@ name: Sync Advanced Classic Editor
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '23 12 * * *'
+    - cron:  '00 12 * * *'
   workflow_dispatch:
 jobs:
   sync:
