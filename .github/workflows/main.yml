@@ -20,9 +20,7 @@ jobs:
 
       - name: Remove unwanted files
         run: |
-          git rm -r .
-          git restore .github
-          git restore .git
+          rm -rf ./* --exclude=.github
           git commit -m "Remove all files and folders except .svn, .github, and .git"
           git push origin master
 
