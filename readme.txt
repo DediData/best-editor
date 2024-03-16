@@ -100,5 +100,3 @@ These styles are imported from your current theme editor-style.css file. However
 
 = 1.0.0 =
 * First Release
-
-
