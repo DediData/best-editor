@@ -238,7 +238,7 @@ final class Best_Editor extends \DediData\Singleton {
 		add_editor_style(
 			array(
 				'css/editor-style.css',
-				$this->plugin_url . '/assets/font-awesome/css/font-awesome.min.css',
+				$this->plugin_url . '/assets/fontawesome-6.5.1/css/all.min.css',
 				$this->plugin_url . '/assets/bootstrap-5.3.3/css/bootstrap' . $rtl_ext . '.min.css',
 			)
 		);

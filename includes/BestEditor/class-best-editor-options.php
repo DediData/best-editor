@@ -211,7 +211,7 @@ final class Best_Editor_Options extends \DediData\Singleton {
 				add_settings_field(
 					'bootstrap',
 					// id attribute of tag
-					esc_html__( 'Load Bootstrap 3.3.7 in your site frontend', 'best-editor' ),
+					esc_html__( 'Load Bootstrap in your site frontend', 'best-editor' ),
 					// Title as label for field
 					function () {
 						$best_editor     = get_option( $this->plugin_slug );
@@ -254,7 +254,7 @@ final class Best_Editor_Options extends \DediData\Singleton {
 			<form method="post" action="options.php">
 				<p><?php esc_html_e( 'To use this plugin, You need to disable Default Block Editor first', 'best-editor' ); ?></p>
 				<p><a href="plugin-install.php?tab=plugin-information&plugin=disable-gutenberg"><?php esc_html_e( 'Click here to install a plugin to Disable Default Block Editor', 'best-editor' ); ?></a></p>
-				<p><?php esc_html_e( 'Advanced Classic Editor automatically loads FontAwesome and Bootstrap 3.3.7 in editor area.', 'best-editor' ); ?></p>
+				<p><?php esc_html_e( 'Advanced Classic Editor automatically loads FontAwesome and Bootstrap in editor area.', 'best-editor' ); ?></p>
 				<p><?php esc_html_e( 'But if you like to use Font Awesome and Bootstrap elements, You should load these libraries in your site frontend. you can enable them in following (if your theme doesn\'t load these libraries)', 'best-editor' ); ?></p>
 			<?php
 				submit_button();
