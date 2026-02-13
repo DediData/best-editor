@@ -1,11 +1,9 @@
 <?php
 /**
  * Advanced Classic Editor Settings Page Class
- * 
+ *
  * @package Best_Editor
  */
-
-declare(strict_types=1);
 
 namespace BestEditor;
 
@@ -16,35 +14,35 @@ final class Best_Editor_Options extends \DediData\Singleton {
 
 	/**
 	 * Page Title
-	 * 
+	 *
 	 * @var string $page_title
 	 */
 	protected $page_title;
 
 	/**
 	 * Menu Title
-	 * 
+	 *
 	 * @var string $menu_title
 	 */
 	protected $menu_title;
 
 	/**
 	 * Plugin Slug
-	 * 
+	 *
 	 * @var string $plugin_slug
 	 */
 	protected $plugin_slug;
 
 	/**
 	 * Plugin Hook
-	 * 
+	 *
 	 * @var string $plugin_hook
 	 */
 	protected $plugin_hook;
 
 	/**
 	 * Constructor
-	 * 
+	 *
 	 * @param mixed $plugin_slug Plugin Slug String.
 	 */
 	public function __construct( $plugin_slug = null ) {
@@ -79,13 +77,13 @@ final class Best_Editor_Options extends \DediData\Singleton {
 
 		/*
 		add_settings_error(
-			$this->plugin_slug . '_messages', 
+			$this->plugin_slug . '_messages',
 			// Slug title of setting
 			'wporg_message',
 			// Slug-name , Used as part of 'id' attribute in HTML output.
 			esc_html__('The entered information is not correct.', 'best-editor'),
 			// message text, will be shown inside styled <div> and <p> tags
-			'error' 
+			'error'
 			// Message type, controls HTML class. Accepts 'error' or 'updated'.
 		);
 		*/
@@ -95,7 +93,7 @@ final class Best_Editor_Options extends \DediData\Singleton {
 
 	/**
 	 * Registers a new settings page under Settings.
-	 * 
+	 *
 	 * @return void
 	 */
 	public function add_admin_menu() {
@@ -117,7 +115,7 @@ final class Best_Editor_Options extends \DediData\Singleton {
 
 	/**
 	 * Adds a help tab and a help sidebar to the current screen in the WordPress admin area.
-	 * 
+	 *
 	 * @return void
 	 */
 	public function on_plugin_page_load() {
@@ -144,7 +142,7 @@ final class Best_Editor_Options extends \DediData\Singleton {
 
 	/**
 	 * Display an admin notice on the WordPress admin dashboard if the plugin is not configured.
-	 * 
+	 *
 	 * @return void
 	 */
 	public function add_admin_notices() {
@@ -158,17 +156,17 @@ final class Best_Editor_Options extends \DediData\Singleton {
 
 	/**
 	 * Register the settings for the plugin.
-	 * 
+	 *
 	 * @return void
 	 */
 	public function register_settings() {
 		// whitelist options
 		register_setting(
-			$this->plugin_slug, 
+			$this->plugin_slug,
 			// option_group
-			$this->plugin_slug, 
+			$this->plugin_slug,
 			// option_name, for name property of tags
-			array( $this, 'process_inputs' ) 
+			array( $this, 'process_inputs' )
 			// sanitize_callback
 		);
 		add_settings_section(
@@ -235,7 +233,7 @@ final class Best_Editor_Options extends \DediData\Singleton {
 
 	/**
 	 * Settings page display callback.
-	 * 
+	 *
 	 * @return void
 	 */
 	public function settings_page_content() {
@@ -243,7 +241,7 @@ final class Best_Editor_Options extends \DediData\Singleton {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
-		
+
 		// var_dump( wp_load_alloptions() ); // print all options
 
 		// show error/update messages

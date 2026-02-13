@@ -5,18 +5,16 @@
  * Plugin URI: https://dedidata.com
  * Author: DediData
  * Author URI: https://dedidata.com
- * Version: 3.1.3
+ * Version: 3.1.5
  * Requires at least: 6.0
- * Tested up to: 6.4
- * Requires PHP: 7.0
+ * Tested up to: 6.9
+ * Requires PHP: 7.4
  * License: GPL v3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: best-editor
  *
  * @package Best_Editor
  */
-
-declare(strict_types=1);
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

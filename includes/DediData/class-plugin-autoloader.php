@@ -1,11 +1,9 @@
 <?php
 /**
  * DediData Plugin Autoloader
- * 
+ *
  * @package DediData
  */
-
-declare(strict_types=1);
 
 namespace DediData;
 
@@ -19,21 +17,21 @@ final class Plugin_Autoloader {
 
 	/**
 	 * Name Spaces
-	 * 
+	 *
 	 * @var array<string> $name_spaces
 	 */
 	protected $name_spaces;
 
 	/**
 	 * Plugin File
-	 * 
+	 *
 	 * @var string $plugin_file
 	 */
 	protected $plugin_file;
 
 	/**
 	 * Constructor
-	 * 
+	 *
 	 * @param array<string> $name_spaces Name Spaces.
 	 * @return void
 	 */
@@ -51,7 +49,7 @@ final class Plugin_Autoloader {
 	/**
 	 * The autoloader function checks if a class is part of a specific plugin and includes the
 	 * corresponding class file if it exists.
-	 * 
+	 *
 	 * @param string $class_name The class parameter is the name of the class that needs to be auto loaded.
 	 * @return void
 	 */
